@@ -3,86 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Downloader Pro</title>
-    <style>
-        :root { --primary: #fe2c55; --dark: #121212; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; text-align: center; padding: 20px; }
-        .container { max-width: 500px; margin: 0 auto; background: #1e1e1e; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        input { width: 90%; padding: 12px; border-radius: 10px; border: none; margin-bottom: 15px; font-size: 16px; }
-        button { width: 95%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:hover { opacity: 0.8; transform: scale(1.02); }
-        .result-card { margin-top: 25px; padding: 15px; border: 1px solid #333; border-radius: 15px; display: none; }
-        img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .btn-dl { display: block; margin: 10px 0; padding: 10px; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .btn-video { background: #00f2ea; color: #000; }
-        .btn-music { background: #ffea00; color: #000; }
-        #loading { display: none; margin-top: 10px; color: #00f2ea; }
-    </style>
+    <title>MEDIA DOWNLOADER ULTRA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Space+Grotesk:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>TikTok Downloader</h2>
-    <p style="font-size: 0.9rem; opacity: 0.7;">Download Video (No WM) & Musik MP3</p>
-    
-    <input type="text" id="tiktokUrl" placeholder="Tempel link TikTok di sini...">
-    <button onclick="downloadTikTok()" id="mainBtn">AMBIL MEDIA</button>
-    
-    <div id="loading">Sedang memproses data...</div>
+    <div class="bg-noise"></div>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
 
-    <div id="result" class="result-card">
-        <img id="resCover" src="" alt="Thumbnail">
-        <h4 id="resTitle" style="margin: 10px 0;"></h4>
-        <p id="resAuthor" style="font-size: 0.8rem; color: #aaa;"></p>
-        
-        <a id="dlVideo" href="#" class="btn-dl btn-video">⬇️ VIDEO (TANPA WM)</a>
-        <a id="dlMusic" href="#" class="btn-dl btn-music">🎵 DOWNLOAD LAGU (MP3)</a>
+    <div class="marquee-top">
+        <div class="marquee-content">
+            SYSTEM READY • V.3.0 ULTRA • NO WATERMARK • FAST SPEED • SECURE • SANN404 • SYSTEM READY • V.3.0 ULTRA • NO WATERMARK •
+        </div>
     </div>
-</div>
 
-<script>
-    async function downloadTikTok() {
-        const url = document.getElementById('tiktokUrl').value;
-        const mainBtn = document.getElementById('mainBtn');
-        const loading = document.getElementById('loading');
-        const result = document.getElementById('result');
+    <nav class="navbar">
+        <div class="brand-container">
+            <div class="brand-glitch" data-text="MD-ULTRA">MediaDownloader</div>
+        </div>
+       
+        <a href="docs.html" class="nav-btn">BACA YA INI</a>
+    </nav>
 
-        if (!url) return alert("Masukkan link dulu!");
+    <div class="container">
+        
+        <div class="cyber-card main-card">
+            <div class="screw top-left">+</div>
+            <div class="screw top-right">+</div>
+            <div class="screw bottom-left">+</div>
+            <div class="screw bottom-right">+</div>
 
-        // UI Feedback
-        mainBtn.disabled = true;
-        loading.style.display = "block";
-        result.style.display = "none";
-
-        try {
-            const response = await fetch('/api', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ url: url })
-            });
-
-            const resData = await response.json();
-
-            if (!resData.success) throw new Error(resData.error);
-
-            // Tampilkan Data
-            document.getElementById('resCover').src = resData.data.cover;
-            document.getElementById('resTitle').innerText = resData.data.title;
-            document.getElementById('resAuthor').innerText = "By: " + resData.data.author;
+            <div class="card-header-visual">
+                <div class="profile-section">
+                    <img src="https://cdn.odzre.my.id/rc4.jpg" alt="User Profile" class="avatar-img" id="userAvatar">
+                    <div class="profile-info">
+                        <span class="user-role">ADMINISTRATOR</span>
+                        <span class="user-action">PASTE YOUR LINK BELOW</span>
+                    </div>
+                </div>
+                <div class="decor-lines">///</div>
+            </div>
             
-            // Link Download
-            document.getElementById('dlVideo').href = resData.data.video_no_wm;
-            document.getElementById('dlMusic').href = resData.data.music_url;
+            <div class="card-body">
+                <div class="input-wrapper">
+                    <div class="input-label">TARGET URL:</div>
+                    <input type="text" id="urlInput" class="cyber-input" placeholder="https://tiktok.com/..." autocomplete="off">
+                    <div class="input-focus-border"></div>
+                </div>
 
-            result.style.display = "block";
-        } catch (err) {
-            alert("Error: " + err.message);
-        } finally {
-            mainBtn.disabled = false;
-            loading.style.display = "none";
-        }
-    }
-</script>
+                <div class="platform-tags">
+                    <span>#TIKTOK</span> <span>#IG</span> <span>#YT</span> <span>#FB</span> <span>#X</span>
+                </div>
+                
+                <button id="downloadBtn" onclick="fetchMedia()" class="cyber-button">
+                    <span class="btn-text">INITIATE DOWNLOAD</span>
+                    <span class="btn-glare"></span>
+                </button>
+            </div>
+        </div>
 
+        <div id="loading" class="cyber-card hidden" style="text-align: center; padding: 40px;">
+            <div class="scanner"></div>
+            <p class="blink-text">PROCESSING DATA STREAM...</p>
+        </div>
+
+        <div id="error-msg" class="cyber-card error-state hidden">
+            <div class="error-header">SYSTEM ERROR</div>
+            <div class="error-body" id="error-text"></div>
+        </div>
+
+        <div id="result" class="result-stack"></div>
+
+        <footer class="sann-footer">
+            <div class="footer-line"></div>
+            <p>POWERED BY <span class="sann-highlight">SANN404 FORUM</span></p>
+            <p style="font-size: 0.7rem; opacity: 0.6;">ENGINEERED FOR PERFORMANCE</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
